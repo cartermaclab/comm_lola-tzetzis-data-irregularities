@@ -125,8 +125,8 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-\shorttitle{Data irregularities}
-\keywords{Meta-science; GRIMMER; Effect sizes; Perceptual motor learning\newline\indent Word count: X}
+\shorttitle{Commentary on Lola \& Tzetzis papers}
+\keywords{Meta-science; GRIMMER; Effect sizes; Perceptual motor learning}
 \usepackage{lineno}
 
 \linenumbers
@@ -336,7 +336,12 @@ We have reviewed concerning data irregularities spanning five articles investiga
 
 It is noteworthy that the results reported in each of these articles perfectly reflect the authors' expectations. Indeed, our attention was drawn to these articles after the Lola and Tzetzis (2021) paper was shared on Twitter (Gray, 2021), possibly because the results appeared to be exemplary. Although these errors seem unlikely to have aligned with expectations by chance alone, our exposure to them occurred after they had been selected for publication. We cannot rule out that these papers were selected for publication because of exemplary results and happened to have errors, and this selection caused those errors to correlate with the authors' expectations.
 
-Other irregularities, such as a repeating \emph{F}-statistic for all four analyses of explicit rules and the recurring age of participants, potentially reflect sloppiness more than expectation. Indeed, the authors have already admitted that some values reported in their tables were in error, and it seems errors occurred in each of the articles we have reviewed. These errors were pervasive and appear to have substantially affected the conclusions of the articles in question. At a minimum, the consistent reporting errors across these five articles seem to reflect excessive carelessness throughout the publication process. Even if the authors offer corrections, which they have suggested they intend to do\footnote{As of today's date (2021-08-19), there is no indication that such corrective actions have been taken by the authors.}, many in the research community may find it difficult to trust any of these results.
+Other irregularities, such as a repeating \emph{F}-statistic for all four analyses of explicit rules and the recurring age of participants, potentially reflect sloppiness more than expectation. Indeed, the authors have already admitted that some values reported in their tables were in error, and it seems errors occurred in each of the articles we have reviewed. These errors were pervasive and appear to have substantially affected the conclusions of the articles in question. At a minimum, the consistent reporting errors across these five articles seem to reflect excessive carelessness throughout the publication process. Even if the authors offer corrections, which they have suggested they intend to do\footnote{As of today's date (2021-08-20), there is no indication that such corrective actions have been taken by the authors.}, many in the research community may find it difficult to trust any of these results.
+
+\hypertarget{acknowledgements}{%
+\section{Acknowledgements}\label{acknowledgements}}
+
+We would like to thank Abbey Corson for her help with data extraction from the target articles.
 
 \hypertarget{data-materials-and-code-availability}{%
 \section{Data, materials, and code availability}\label{data-materials-and-code-availability}}
@@ -346,7 +351,7 @@ Other irregularities, such as a repeating \emph{F}-statistic for all four analys
 \hypertarget{r-packages-used-in-this-project}{%
 \section{R packages used in this project}\label{r-packages-used-in-this-project}}
 
-R (Version 4.1.1; R Core Team, 2021) and the R-packages \emph{compute.es} (Version 0.2.5; Re, 2013), \emph{kableExtra} (Version 1.3.4; Zhu, 2021), \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020), and \emph{tidyverse} (Version 1.3.1; Wickham et al., 2019).
+R (Version 4.1.1; R Core Team, 2021) and the R-packages \emph{compute.es} (Version 0.2.5; Re, 2013), \emph{daff} (Fitzpatrick, de Jonge, \& Warnes, 2019), \emph{gridGraphics} (Murrell \& Wen, 2020), \emph{kableExtra} (Version 1.3.4; Zhu, 2021), \emph{lemon} (Version 0.4.5; Edwards, 2020), \emph{lsr} (Navarro, 2015), \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020), \emph{RColorBrewer} (Version 1.1.2; Neuwirth, 2014), \emph{scales} (Version 1.1.1; Wickham \& Seidel, 2020), and \emph{tidyverse} (Version 1.3.1; Wickham et al., 2019).
 
 \hypertarget{conflict-of-interest}{%
 \section{Conflict of interest}\label{conflict-of-interest}}
@@ -385,11 +390,17 @@ Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} 
 \leavevmode\hypertarget{ref-correll2020}{}%
 Correll, J., Mellinger, C., McClelland, G. H., \& Judd, C. M. (2020). Avoid cohen{'}s {`}small{'}, {`}medium{'}, and {`}large{'} for power analysis. \emph{Trends in Cognitive Sciences}, \emph{24}(3), 200--207. \url{https://doi.org/10.1016/j.tics.2019.12.009}
 
+\leavevmode\hypertarget{ref-R-lemon}{}%
+Edwards, S. M. (2020). \emph{Lemon: Freshing up your 'ggplot2' plots}. Retrieved from \url{https://CRAN.R-project.org/package=lemon}
+
 \leavevmode\hypertarget{ref-field2016}{}%
 Field, A. P. (2016). \emph{An adventure in statistics: The reality enigma}.
 
 \leavevmode\hypertarget{ref-fischman2015}{}%
 Fischman, M. G. (2015). On the continuing problem of inappropriate learning measures: Comment on Wulf et al. (2014) and Wulf et al. (2015). \emph{Human Movement Science}, \emph{42}, 225--231. \url{https://doi.org/10.1016/j.humov.2015.05.011}
+
+\leavevmode\hypertarget{ref-R-daff}{}%
+Fitzpatrick, P., de Jonge, E., \& Warnes, G. R. (2019). \emph{Daff: Diff, patch and merge for data.frames}. Retrieved from \url{https://CRAN.R-project.org/package=daff}
 
 \leavevmode\hypertarget{ref-gray2021}{}%
 Gray, R. {[}@ShakeyWaits{]}. (2021). \emph{The effect of explicit, implicit and analogy instruction on decision making skill for novices, under stress}. {[}Tweet; Thumbnail link to article{]}. Twitter. \url{https://twitter.com/ShakeyWaits/status/1359501377073012736}.
@@ -414,6 +425,15 @@ Lovakov, A., \& Agadullina, E. R. (2021). Empirically derived guidelines for eff
 
 \leavevmode\hypertarget{ref-munafo2017}{}%
 Munafò, M. R., Nosek, B. A., Bishop, D. V. M., Button, K. S., Chambers, C. D., Percie du Sert, N., \ldots{} Ioannidis, J. P. A. (2017). A manifesto for reproducible science. \emph{Nature Human Behaviour}, \emph{1}(1), 1--9. \url{https://doi.org/10.1038/s41562-016-0021}
+
+\leavevmode\hypertarget{ref-R-gridGraphics}{}%
+Murrell, P., \& Wen, Z. (2020). \emph{gridGraphics: Redraw base graphics using 'grid' graphics}. Retrieved from \url{https://CRAN.R-project.org/package=gridGraphics}
+
+\leavevmode\hypertarget{ref-R-lsr}{}%
+Navarro, D. (2015). \emph{Learning statistics with r: A tutorial for psychology students and other beginners. (Version 0.5)}. Adelaide, Australia: University of Adelaide. Retrieved from \url{http://ua.edu.au/ccs/teaching/lsr}
+
+\leavevmode\hypertarget{ref-R-RColorBrewer}{}%
+Neuwirth, E. (2014). \emph{RColorBrewer: ColorBrewer palettes}. Retrieved from \url{https://CRAN.R-project.org/package=RColorBrewer}
 
 \leavevmode\hypertarget{ref-nuijten2016}{}%
 Nuijten, M. B., Hartgerink, C. H. J., van Assen, M. A. L. M., Epskamp, S., \& Wicherts, J. M. (2016). The prevalence of statistical reporting errors in psychology (1985{{}}2013). \emph{Behavior Research Methods}, \emph{48}(4), 1205--1226. \url{https://doi.org/10.3758/s13428-015-0664-2}
@@ -441,6 +461,9 @@ Tzetzis, G. C., \& Lola, A. C. (2015). The effect of analogy, implicit, and expl
 
 \leavevmode\hypertarget{ref-R-tidyverse}{}%
 Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., \ldots{} Yutani, H. (2019). Welcome to the {tidyverse}. \emph{Journal of Open Source Software}, \emph{4}(43), 1686. \url{https://doi.org/10.21105/joss.01686}
+
+\leavevmode\hypertarget{ref-R-scales}{}%
+Wickham, H., \& Seidel, D. (2020). \emph{Scales: Scale functions for visualization}. Retrieved from \url{https://CRAN.R-project.org/package=scales}
 
 \leavevmode\hypertarget{ref-R-kableExtra}{}%
 Zhu, H. (2021). \emph{kableExtra: Construct complex table with 'kable' and pipe syntax}. Retrieved from \url{https://CRAN.R-project.org/package=kableExtra}

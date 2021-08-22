@@ -1,7 +1,7 @@
 ---
 title             : "Data irregularities across five implicit learning articles: Comments on @lola2012; @lola2020; @lola2021; @tzetzis2010; @tzetzis2015"
 
-shorttitle        : "Data irregularities"
+shorttitle        : "Commentary on Lola & Tzetzis papers"
 
 author: 
   - name          : "Brad McKay"
@@ -25,7 +25,7 @@ abstract: |
   We present a critical re-analysis of five implicit learning papers published by the same authors between 2010 and 2021. We calculated effect sizes for each pairwise comparison reported in the papers using the data published in each article. We further identified mathematically impossible data reported in multiple papers, either with deductive logic or by conducting a GRIMMER analysis of reported means and standard deviations. We found the pairwise effect sizes were implausible in all five articles in question, with Cohen’s *d* values often exceeding 100 and sometimes exceeding 1000. Impossible statistics were reported in four out of the five articles. Reported test statistics and $\eta^{2}$ values were also implausible, with several $\eta^{2}$ = .99 and even $\eta^{2}$ = 1.0 for between-subjects main effects. The results reported in the five articles in question are unreliable. Many of the problems we identified could be spotted without further analysis, highlighting the need for adequate statistical training in the field of motor learning. 
   
 keywords          : "Meta-science; GRIMMER; Effect sizes; Perceptual motor learning"
-wordcount         : "X"
+#wordcount         : "X"
 
 bibliography      : ["../references.bib", "../r-references.bib"]
 
@@ -199,6 +199,9 @@ It is noteworthy that the results reported in each of these articles perfectly r
 Other irregularities, such as a repeating *F*-statistic for all four analyses of explicit rules and the recurring age of participants, potentially reflect sloppiness more than expectation. Indeed, the authors have already admitted that some values reported in their tables were in error, and it seems errors occurred in each of the articles we have reviewed. These errors were pervasive and appear to have substantially affected the conclusions of the articles in question. At a minimum, the consistent reporting errors across these five articles seem to reflect excessive carelessness throughout the publication process. Even if the authors offer corrections, which they have suggested they intend to do[^5], many in the research community may find it difficult to trust any of these results.
 
 [^5]: As of today's date (`r Sys.Date()`), there is no indication that such corrective actions have been taken by the authors.
+
+# Acknowledgements
+We would like to thank Abbey Corson for her help with data extraction from the target articles.
 
 # Data, materials, and code availability
 
