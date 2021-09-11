@@ -1,5 +1,5 @@
 ---
-title             : "Data irregularities across five implicit learning articles: Comments on @lola2012; @lola2020; @lola2021; @tzetzis2010; @tzetzis2015"
+title             : "Data irregularities across five implicit learning articles: Comments on @lola2021, @lola2020, @tzetzis2015, @lola2012, and @tzetzis2010"
 
 shorttitle        : "Commentary on Lola & Tzetzis papers"
 
