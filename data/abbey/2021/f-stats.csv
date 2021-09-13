@@ -1,0 +1,13 @@
+analysis,F,df1,df2
+rt-test,7644.94,3,168
+rt-group,6648.58,3,56
+rt-testXgroup,2753.29,9,168
+ac-test,409.06,3,168
+ac-group,714.32,3,56
+ac-testXgroup,125.67,9,168
+mac-test,563.06,3,168
+mac-group,159.81,3,56
+mac-testXgroup,113.63,9,168
+csai-test,101489.71,3,168
+csai-group,0.81,3,56
+csai-testXgroup,3.91,9,168
