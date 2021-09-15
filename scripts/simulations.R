@@ -6,7 +6,6 @@
 # SCRIPT SETUP ---------------
 #
 # Required libraries
-library(cowplot)
 library(ggplot2)
 library(gridGraphics)
 library(lsr)
@@ -53,32 +52,3 @@ for (i in 1:iters) {
 round(max(sim2_d), digits = 2)
 round(mean(sim2_d), digits = 2)
 round(min(sim2_d), digits = 2)
-
-
-# CREATE FIGURES AND COMBINE INTO SINGLE PLOT ---------------
-#
-# Create figure for simulation 1
-sim1_dres <- stats::density(sim1_d)
-sim1_fig <- graphics::plot(sim1_dres,
-                           xlab = expression("Cohen's "*italic(d)),
-                           bty = "n",
-                           main = expression(italic('d') == .80)) +
-  graphics::polygon(sim1_dres, col = "blue", border = "black")
-
-p1_recorded <- grDevices::recordPlot(sim1_fig)
-cowplot::ggdraw(p1_recorded)
-
-# Create figure for simulation 2
-sim2_dres <- stats::density(sim2_d)
-sim2_fig <- graphics::plot(sim2_dres,
-                           xlab = expression("Cohen's "*italic(d)),
-                           bty = "n",
-                           main = expression(italic('d') == 3.0)) +
-  graphics::polygon(sim2_dres, col = "blue", border = "black")
-
-p2_recorded <- grDevices::recordPlot(sim2_fig)
-cowplot::ggdraw(p2_recorded)
-
-# Combine figures
-cowplot::plot_grid(p1_recorded, p2_recorded, labels = c('A', 'B'),
-                   label_size = 12)
