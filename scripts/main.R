@@ -16,11 +16,14 @@ source("scripts/wrangle_2012.R")
 source("scripts/wrangle_2015.R")
 source("scripts/wrangle_2020.R")
 source("scripts/wrangle_2021.R")
+source("scripts/wrangle_2021b.R")
 
 # DATA WRANGLING ---------------
 #
 # Combine all effect sizes across experiments
-all_effects <- plyr::rbind.fill(perceptual_2021,
+all_effects <- plyr::rbind.fill(perceptual_2021b,
+                                rt_2021b,
+                                perceptual_2021,
                                 anxiety_2021,
                                 motor_2021,
                                 rt_2021,
@@ -37,6 +40,29 @@ all_long <- all_effects %>%
 
 # Make all d vaues positive
 all_long$d <- abs(all_long$d)
+
+# Combine RT and accuracy values for 2021 paper into one column
+
+# First, combine RT and accuracy dataframes
+
+rt_ac_2021 <- plyr::rbind.fill(main_2021_rt, main_2021_perceptual)
+
+# Same for 2021b paper
+
+rt_ac_2021b <- plyr::rbind.fill(main_2021b_rt, main_2021b_perceptual)
+
+# reshape 2021 data to long format
+long_2021 <- rt_ac_2021 %>%
+  tidyr::pivot_longer(!id | n,  names_to = "comparison", values_to = "value")
+
+# reshape 2021b data to long format
+
+long_2021b <- rt_ac_2021b %>%
+  tidyr::pivot_longer(!id | n,  names_to = "comparison", values_to = "value")
+
+# combine the datasets
+
+all_2021 <- cbind(long_2021, long_2021b$value)
 
 
 # CREATE FIGURE ---------------
@@ -111,3 +137,8 @@ ggplot2::ggplot(data = all_long,
            x = 2.5,
            y = .5,
            label = "Cohen's benchmark\nfor a large effect")
+
+
+# CORRELATION ANALYSIS ---------------
+
+cor(all_2021$value, all_2021$`long_2021b$value`)
