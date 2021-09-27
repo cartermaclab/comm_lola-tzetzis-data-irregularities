@@ -41,28 +41,24 @@ all_long <- all_effects %>%
 # Make all d vaues positive
 all_long$d <- abs(all_long$d)
 
-# Combine RT and accuracy values for 2021 paper into one column
 
-# First, combine RT and accuracy dataframes
+# reshape 2021 RT mean data to long format
+long_2021_rt_m <- main_2021_rt %>%
+  tidyr::pivot_longer(!id & !n & !I_sd & !A_sd & !E_sd & !C_sd,  names_to = "comparison", values_to = "value")
 
-rt_ac_2021 <- plyr::rbind.fill(main_2021_rt, main_2021_perceptual)
+# reshape 2021b RT mean data to long format
+long_2021b_rt_m <- main_2021b_rt %>%
+  tidyr::pivot_longer(!id & !n & !I_sd & !A_sd & !E_sd & !C_sd,  names_to = "comparison", values_to = "value")
 
-# Same for 2021b paper
+# reshape 2021 accuracy mean data to long format
+long_2021_ac_m <- main_2021_perceptual %>%
+  tidyr::pivot_longer(!id & !n & !I_sd & !A_sd & !E_sd & !C_sd,  names_to = "comparison", values_to = "value")
 
-rt_ac_2021b <- plyr::rbind.fill(main_2021b_rt, main_2021b_perceptual)
+# reshape 2021b accuracy mean data to long format
+long_2021b_ac_m <- main_2021b_perceptual %>%
+  tidyr::pivot_longer(!id & !n & !I_sd & !A_sd & !E_sd & !C_sd,  names_to = "comparison", values_to = "value")
 
-# reshape 2021 data to long format
-long_2021 <- rt_ac_2021 %>%
-  tidyr::pivot_longer(!id | n,  names_to = "comparison", values_to = "value")
 
-# reshape 2021b data to long format
-
-long_2021b <- rt_ac_2021b %>%
-  tidyr::pivot_longer(!id | n,  names_to = "comparison", values_to = "value")
-
-# combine the datasets
-
-all_2021 <- cbind(long_2021, long_2021b$value)
 
 
 # CREATE FIGURE ---------------
@@ -141,4 +137,10 @@ ggplot2::ggplot(data = all_long,
 
 # CORRELATION ANALYSIS ---------------
 
-cor(all_2021$value, all_2021$`long_2021b$value`)
+# correlation between accuracy 2021 and 2021b accuracy means
+cor(long_2021_ac_m$value, long_2021b_ac_m$value)
+
+# correlation between accuracy 2021 and 2021b RT means
+cor(long_2021_rt_m$value, long_2021b_rt_m$value)
+
+
