@@ -21,10 +21,9 @@ note: |
   \vspace{\baselineskip}\raggedright Submitted to *Meta-Psychology*. Participate in open peer review by commenting through hypothes.is directly on this preprint. The full editorial process of all articles under review at *Meta-Psychology* can be found here: https://tinyurl.com/mp-submissions You will find this preprint by searching for the first author's name.
   
 authornote: |
-  \vspace{-.5cm} 
-  \addORCIDlink{Brad McKay}{0000-0002-7408-2323}
-  
-  \addORCIDlink{Michael J. Carter}{0000-0002-0675-4271}
+  \vspace{-4em} 
+  \addORCIDlink{Brad McKay}{0000-0002-7408-2323}  
+  \newline \indent \addORCIDlink{Michael J. Carter}{0000-0002-0675-4271}
 
 abstract: |
   We present a critical re-analysis of six implicit learning papers published by the same authors between 2010 and 2021. We calculated effect sizes for each pairwise comparison reported in the papers using the data published in each article. We further identified mathematically impossible data reported in multiple papers, either with deductive logic or by conducting a GRIMMER analysis of reported means and standard deviations. We found the pairwise effect sizes were implausible in all six articles in question, with Cohen’s *d* values often exceeding 100 and sometimes exceeding 1000. Impossible statistics were reported in four out of the six articles. Reported test statistics and $\eta^{2}$ values were also implausible, with several $\eta^{2}$ = .99 and even $\eta^{2}$ = 1.0 for between-subjects main effects. The results reported in the six articles in question are unreliable. Many of the problems we identified could be spotted without further analysis, highlighting the need for adequate statistical training in the field of motor learning. 
