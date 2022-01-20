@@ -1,4 +1,4 @@
-# Data wrangling for Lola & Tzetzis 2021b
+# Data wrangling for Lola & Tzetzis 2021
 #
 #
 #Lola, A.C., Giatsis, G., Pérez-Turpin, J.A., & Tzetzis, G.C. (2021). The influence of analogies on the development
