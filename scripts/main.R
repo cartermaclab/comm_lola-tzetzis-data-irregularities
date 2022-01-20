@@ -80,8 +80,8 @@ ggplot2::ggplot(data = all_long,
     axis.ticks = element_line(),
     panel.background = element_rect(fill = "white")
   ) +
-  scale_y_continuous(trans = "log10",
-                     breaks = c(.2, .5, .8, 3, 10, 100, 1000, 4000)) +
+  scale_y_continuous(trans =scales::pseudo_log_trans(base=10),
+                     breaks = c(0, .2, .5, .8, 3, 10, 100, 1000, 4000)) +
   geom_jitter(width = .2) +
   annotate(
     "rect",
@@ -131,7 +131,7 @@ ggplot2::ggplot(data = all_long,
   geom_hline(aes(yintercept = 0.8), linetype = 'dashed') +
   annotate("text",
            x = 2.5,
-           y = .5,
+           y = .2,
            label = "Cohen's benchmark\nfor a large effect")
 
 
