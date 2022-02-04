@@ -3,12 +3,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  english,
   man, donotrepeattitle,floatsintext]{apa7}
-\title{Data irregularities across six implicit learning articles: Comments on Lola, Giatis, Pérez-Turpin, and Tzetzis (2021), Lola and Tzetzis (2021), Lola and Tzetzis (2020), Tzetzis and Lola (2015), Lola, Tzetzis, and Zetou (2012), and Tzetzis and Lola (2010)}
-\author{Brad McKay\textsuperscript{1} \& Michael J. Carter\textsuperscript{1}}
-\date{}
-
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
@@ -97,6 +92,15 @@
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -170,19 +174,13 @@
 \usepackage{xcolor}
 \raggedbottom
 \pagewiselinenumbers
-\ifXeTeX
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-\else
-  \usepackage[main=english]{babel}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-\fi
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+
+\title{Data irregularities across six implicit learning articles: Comments on Lola, Giatis, Pérez-Turpin, and Tzetzis (2021), Lola and Tzetzis (2021), Lola and Tzetzis (2020), Tzetzis and Lola (2015), Lola, Tzetzis, and Zetou (2012), and Tzetzis and Lola (2010)}
+\author{Brad McKay\textsuperscript{1} \& Michael J. Carter\textsuperscript{1}}
+\date{}
 
 
 \shorttitle{Commentary on Lola \& Tzetzis papers}
@@ -207,7 +205,7 @@ In Press at \emph{Meta-Psychology}
 
 }
 
-\abstract{
+\abstract{%
 We present a critical re-analysis of six implicit learning papers published by the same authors between 2010 and 2021. We calculated effect sizes for each pairwise comparison reported in the papers using the data published in each article. We further identified mathematically impossible data reported in multiple papers, either with deductive logic or by conducting a GRIMMER analysis of reported means and standard deviations. We found the pairwise effect sizes were implausible in all six articles in question, with Cohen's \emph{d} values often exceeding 100 and sometimes exceeding 1000. In contrast, the largest effect size observed in a million simulated experiments with a true effect of \(d\) = 3 was \(d\) = 6.6. Impossible statistics were reported in four out of the six articles. Reported test statistics and \(\eta^{2}\) values were also implausible, with several \(\eta^{2}\) = .99 and even \(\eta^{2}\) = 1.0 for between-subjects main effects. The results reported in the six articles in question are unreliable. Many of the problems we identified could be spotted without further analysis, highlighting the need for adequate statistical training in the field of motor learning.
 }
 
@@ -311,7 +309,7 @@ Each of the articles reported only omnibus test statistics and then reported pos
 \hypertarget{implausible-effect-sizes}{%
 \subsection{Implausible Effect Sizes}\label{implausible-effect-sizes}}
 
-Cohen's \emph{d} is used to describe the standardized mean difference of an effect and values can range between 0 and infinity in both the negative and positive direction. We calculated absolute values so that all effects were positive. Cohen's \(d_{s}\) (Cohen, 1988) is the observed difference between group means divided by their pooled standard deviation (see Lakens, 2013 for a detailed discussion). Conventional benchmarks for small, medium, and large effects are \emph{d} = .2, .5, and .8, respectively (Cohen, 1962); however, this \emph{cargo-cult} approach to effect size interpretation has been heavily discouraged (see Correll, Mellinger, McClelland, \& Judd, 2020; Field, 2016; Lakens, 2013; Thompson, 2007 for discussions). Recently, an analysis of 6447 Cohen's \emph{d} statistics extracted from social psychology meta-analyses observed median and 75th percentile Cohen's \emph{d} values of .36 and .65, respectively---suggesting the conventional benchmarks may overestimate typical effects (Lovakov \& Agadullina, 2021). In the field of motor learning, recent meta-analyses have found average effect sizes in the published literature of \emph{d} = .19 (McKay et al., 2021), \emph{d} = .54 (McKay, Yantha, Hussien, Carter, \& Ste-Marie, in press), and \emph{d} = .71 (Lohse, Buchanan, \& Miller, 2016).
+Cohen's \emph{d} is used to describe the standardized mean difference of an effect and values can range between 0 and infinity in both the negative and positive direction. We calculated absolute values so that all effects were positive. Cohen's \(d_{s}\) (Cohen, 1988) is the observed difference between group means divided by their pooled standard deviation (see Lakens, 2013 for a detailed discussion). Conventional benchmarks for small, medium, and large effects are \emph{d} = .2, .5, and .8, respectively (Cohen, 1962); however, this \emph{mindless} approach to effect size interpretation has been heavily discouraged (see Correll, Mellinger, McClelland, \& Judd, 2020; Field, 2016; Lakens, 2013; Thompson, 2007 for discussions). Recently, an analysis of 6447 Cohen's \emph{d} statistics extracted from social psychology meta-analyses observed median and 75th percentile Cohen's \emph{d} values of .36 and .65, respectively---suggesting the conventional benchmarks may overestimate typical effects (Lovakov \& Agadullina, 2021). In the field of motor learning, recent meta-analyses have found average effect sizes in the published literature of \emph{d} = .19 (McKay et al., 2021), \emph{d} = .54 (McKay, Yantha, Hussien, Carter, \& Ste-Marie, in press), and \emph{d} = .71 (Lohse, Buchanan, \& Miller, 2016).
 
 To evaluate the maximum plausible Cohen's \emph{d} statistics one might encounter from experiments similar to those reported in the target articles, we conducted two simulations that each consisted of one million experiments (see Figure \ref{fig:fig1}). We set the true effect size at \emph{d} = .8, the conventional benchmark for a ``large'' treatment effect, in the first simulation. The largest effect size observed from the one million simulated experiments was \emph{d} = 2.97. In the second simulation, we set the true effect size at \emph{d} = 3, an unrealistically large effect size that might rarely be encountered in the psychology and/or motor learning literature. The maximum effect size observed in the one million simulated experiments was \emph{d} = 6.6.
 
