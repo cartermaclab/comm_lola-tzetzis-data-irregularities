@@ -1,7 +1,7 @@
 ---
-title             : "Data irregularities across six implicit learning articles: Comments on @lola2021b, @lola2021, @lola2020, @tzetzis2015, @lola2012, and @tzetzis2010"
+title             : "A critical re-analysis of six implicit learning papers"
 
-shorttitle        : "Commentary on Lola & Tzetzis papers"
+shorttitle        : "Commentary on implicit learning papers"
 
 author: 
   - name          : "Brad McKay"
