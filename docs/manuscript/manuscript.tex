@@ -3,11 +3,12 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
+  english,
   man, donotrepeattitle,floatsintext]{apa7}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{iftex}
-\ifPDFTeX
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -36,7 +37,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Data irregularities across six implicit learning articles: Comments on Lola, Giatis, Pérez-Turpin, and Tzetzis (2021), Lola and Tzetzis (2021), Lola and Tzetzis (2020), Tzetzis and Lola (2015), Lola, Tzetzis, and Zetou (2012), and Tzetzis and Lola (2010)},
+  pdftitle={A critical re-analysis of six implicit learning papers},
   pdfauthor={Brad McKay1 \& Michael J. Carter1},
   pdflang={en-EN},
   pdfkeywords={Metascience; GRIMMER; Effect sizes; Perceptual motor learning},
@@ -69,38 +70,6 @@
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
-  \fi
-  % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
-\ifLuaTeX
-\usepackage[bidi=basic]{babel}
-\else
-\usepackage[bidi=default]{babel}
-\fi
-\babelprovide[main,import]{english}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -156,15 +125,7 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-
-\usepackage{xpatch}
-\makeatletter
-\xapptocmd\appendix
-  {\xapptocmd\section
-    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
-    {}{\InnerPatchFailed}%
-  }
-{}{\PatchFailed}
+\shorttitle{Commentary on implicit learning papers}
 \keywords{Metascience; GRIMMER; Effect sizes; Perceptual motor learning}
 \usepackage{lineno}
 
@@ -174,16 +135,52 @@
 \usepackage{xcolor}
 \raggedbottom
 \pagewiselinenumbers
-\ifLuaTeX
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\else
+  \usepackage[main=english]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\fi
+\ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\title{Data irregularities across six implicit learning articles: Comments on Lola, Giatis, Pérez-Turpin, and Tzetzis (2021), Lola and Tzetzis (2021), Lola and Tzetzis (2020), Tzetzis and Lola (2015), Lola, Tzetzis, and Zetou (2012), and Tzetzis and Lola (2010)}
+\title{A critical re-analysis of six implicit learning papers}
 \author{Brad McKay\textsuperscript{1} \& Michael J. Carter\textsuperscript{1}}
 \date{}
 
 
-\shorttitle{Commentary on Lola \& Tzetzis papers}
+\note{
+
+\vspace{10ex}
+
+In Press at \emph{Meta-Psychology}
+
+}
 
 \authornote{
 
@@ -197,15 +194,7 @@ Correspondence concerning this article should be addressed to Brad McKay, 1280 M
 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Department of Kinesiology, McMaster University}
 
-\note{
-
-\vspace{10ex}
-
-In Press at \emph{Meta-Psychology}
-
-}
-
-\abstract{%
+\abstract{
 We present a critical re-analysis of six implicit learning papers published by the same authors between 2010 and 2021. We calculated effect sizes for each pairwise comparison reported in the papers using the data published in each article. We further identified mathematically impossible data reported in multiple papers, either with deductive logic or by conducting a GRIMMER analysis of reported means and standard deviations. We found the pairwise effect sizes were implausible in all six articles in question, with Cohen's \emph{d} values often exceeding 100 and sometimes exceeding 1000. In contrast, the largest effect size observed in a million simulated experiments with a true effect of \(d\) = 3 was \(d\) = 6.6. Impossible statistics were reported in four out of the six articles. Reported test statistics and \(\eta^{2}\) values were also implausible, with several \(\eta^{2}\) = .99 and even \(\eta^{2}\) = 1.0 for between-subjects main effects. The results reported in the six articles in question are unreliable. Many of the problems we identified could be spotted without further analysis, highlighting the need for adequate statistical training in the field of motor learning.
 }
 
@@ -286,7 +275,7 @@ The primary outcome measures used in these experiments were reaction time (Artic
 
 None of the six articles in question included a link to a public repository where the data could be accessed. We first wrote (email sent February 10, 2021) the corresponding author of Article 2 and asked if they would be willing to share the data for this experiment. The authors' response was that the data could not be shared as they were not finished with their analyses and were in the process of running different tests (A. Lola, personal communication, February 12 2021). We followed up this email (sent February 12 2021) by asking whether they would instead be willing to share the data from any of Articles 3 to 6 as these were less recent, and presumably all planned analyses had been completed. After a 2 week period with no response, we followed up with a third email (sent February 26 2021) and reiterated our interest in obtaining their data from any of these articles. The authors' response was that they were unable to share data from any of these articles because in some cases they no longer had the data and in other cases they had plans to conduct further analyses (A. Lola, personal communication, March 2 2021).
 
-Our first two requests did not include any indication about our concerns regarding the data irregularities. Subsequently, in a fourth email (sent April 12 2021) we outlined our concerns for each article\footnote{Excluding Article 1 (Lola et al., 2021) because we were not aware of it at the time as it had not yet been accepted for publication.} and once again reiterated our request to the authors to share any available data for any of the target articles. These requests were once again refused. The authors did address some specific concerns regarding Article 2, but for the most part only provided more general responses to our concerns. The authors admitted that some of the values reported in the other target articles were incorrect, but did not identify which values or articles. Despite this, the authors maintained that the data irregularities---identified in our email and described in this paper---do not impact the veracity of their analyses or conclusions (A. Lola, personal communication, April 22 2021). We illustrate below that the data \emph{and} analyses reported in each of the articles reviewed are unreliable. Our extracted data and analysis scripts can be accessed at the following link: \url{https://osf.io/raz6q/}.
+Our first two requests did not include any indication about our concerns regarding the data irregularities. Subsequently, in a fourth email (sent April 12 2021) we outlined our concerns for each article\footnote{Excluding Article 1 (Lola, Giatis, Pérez-Turpin, \& Tzetzis, 2021) because we were not aware of it at the time as it had not yet been accepted for publication.} and once again reiterated our request to the authors to share any available data for any of the target articles. These requests were once again refused. The authors did address some specific concerns regarding Article 2, but for the most part only provided more general responses to our concerns. The authors admitted that some of the values reported in the other target articles were incorrect, but did not identify which values or articles. Despite this, the authors maintained that the data irregularities---identified in our email and described in this paper---do not impact the veracity of their analyses or conclusions (A. Lola, personal communication, April 22 2021). We illustrate below that the data \emph{and} analyses reported in each of the articles reviewed are unreliable. Our extracted data and analysis scripts can be accessed at the following link: \url{https://osf.io/raz6q/}.
 
 \hypertarget{effect-size-calculations-and-simulations}{%
 \subsection{Effect Size Calculations and Simulations}\label{effect-size-calculations-and-simulations}}
@@ -375,7 +364,7 @@ We observed similarly discordant \(F\)-statistics with analyses of simulated acc
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
 
-We have reviewed concerning data irregularities spanning six articles investigating implicit motor and perceptual learning (Lola et al., 2021; Lola \& Tzetzis, 2020, 2021; Lola et al., 2012; Tzetzis \& Lola, 2010, 2015). These data irregularities include implausibly large effect sizes for pairwise comparisons and impossible descriptive statistics---both of which have been acknowledged by the authors as misprints due to an outsourcing of table formatting (A. Lola, personal communication, April 22, 2021). Further, the reported test statistics and associated \(\eta^{2}\) values are also implausibly large, which is inconsistent with the authors' claim that the results and discussions remain valid despite these aforementioned typographic errors in the tables. We discovered that the data reported in Articles 1 and 2 are very highly correlated despite ostensibly coming from different experiments, samples, and situations (Lola et al., 2021; Lola \& Tzetzis, 2021). Finally, we observed that recently updated tables of summary statistics in Article 1 were incompatible with the analyses reported in the paper, while the original summary statistics, which indicated implausible effect sizes, were more compatible with the analyses. Considering these findings, the conclusions from these articles are not reliable.
+We have reviewed concerning data irregularities spanning six articles investigating implicit motor and perceptual learning (Lola, Giatis, Pérez-Turpin, \& Tzetzis, 2021; Lola \& Tzetzis, 2020, 2021; Lola, Tzetzis, \& Zetou, 2012; Tzetzis \& Lola, 2010, 2015). These data irregularities include implausibly large effect sizes for pairwise comparisons and impossible descriptive statistics---both of which have been acknowledged by the authors as misprints due to an outsourcing of table formatting (A. Lola, personal communication, April 22, 2021). Further, the reported test statistics and associated \(\eta^{2}\) values are also implausibly large, which is inconsistent with the authors' claim that the results and discussions remain valid despite these aforementioned typographic errors in the tables. We discovered that the data reported in Articles 1 and 2 are very highly correlated despite ostensibly coming from different experiments, samples, and situations (Lola, Giatis, Pérez-Turpin, \& Tzetzis, 2021; Lola \& Tzetzis, 2021). Finally, we observed that recently updated tables of summary statistics in Article 1 were incompatible with the analyses reported in the paper, while the original summary statistics, which indicated implausible effect sizes, were more compatible with the analyses. Considering these findings, the conclusions from these articles are not reliable.
 
 The data published in Article 1 are especially concerning. The article information indicates that it was submitted on June 17, 2021. Our email correspondence with the authors ended on April 22, 2021. Therefore, the article was submitted with data that reflect implausible effect sizes as large as \emph{d} = 41.0 \emph{after} we had shared our concerns about the previous five articles, and after the authors had suggested at least some of the implausible effect sizes were due to misprints. Despite this correspondence, the authors published an additional article with results that were not only implausible, but highly correlated with the results reported in a previous article. Subsequently, the authors published corrected tables with new standard deviation values. The means remained highly correlated with those reported in Article 2, but the new standard deviations were substantially larger than the original values. The updated summary statistics are not consistent with the test statistics reported in Article 1. Without commenting further on the possible causes of this sequence of events, we note only that they do not inspire confidence in the validity of the results reported in the target articles.
 
@@ -398,7 +387,7 @@ We would like to thank Abbey Corson for her help with data extraction from the t
 \hypertarget{r-packages-used-in-this-project}{%
 \section{R packages used in this project}\label{r-packages-used-in-this-project}}
 
-R (Version 4.1.2; R Core Team, 2021) and the R-packages \emph{compute.es} (Version 0.2.5; Re, 2013), \emph{daff} (Fitzpatrick, de Jonge, \& Warnes, 2019), \emph{faux} (Version 1.1.0; DeBruine, 2021), \emph{gridGraphics} (Murrell \& Wen, 2020), \emph{kableExtra} (Version 1.3.4; Zhu, 2021), \emph{lemon} (Edwards, 2020), \emph{lsr} (Navarro, 2015), \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020), \emph{RColorBrewer} (Version 1.1.2; Neuwirth, 2014), \emph{scales} (Version 1.1.1; Wickham \& Seidel, 2020), and \emph{tidyverse} (Version 1.3.1; Wickham et al., 2019).
+R (Version 4.0.4; R Core Team, 2021) and the R-packages \emph{compute.es} (Version 0.2.5; Re, 2013), \emph{daff} (Version 0.3.5; Fitzpatrick, de Jonge, \& Warnes, 2019), \emph{faux} (Version 1.1.0; DeBruine, 2021), \emph{gridGraphics} (Version 0.5.1; Murrell \& Wen, 2020), \emph{kableExtra} (Version 1.3.4; Zhu, 2021), \emph{lemon} (Version 0.4.5; Edwards, 2020), \emph{lsr} (Version 0.5; Navarro, 2015), \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020), \emph{RColorBrewer} (Version 1.1.3; Neuwirth, 2014), \emph{scales} (Version 1.2.0; Wickham \& Seidel, 2020), and \emph{tidyverse} (Version 1.3.0; Wickham et al., 2019).
 
 \hypertarget{conflict-of-interest}{%
 \section{Conflict of interest}\label{conflict-of-interest}}
@@ -416,118 +405,118 @@ The authors declare no competing interests.
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-anaya2016}{}}%
+\leavevmode\hypertarget{ref-anaya2016}{}%
 Anaya, J. (2016). \emph{The GRIMMER test: A method for testing the validity of reported measures of variability}. \url{https://doi.org/10.7287/peerj.preprints.2400v1}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-papaja}{}}%
+\leavevmode\hypertarget{ref-R-papaja}{}%
 Aust, F., \& Barth, M. (2020). \emph{{papaja}: {Create} {APA} manuscripts with {R Markdown}}. Retrieved from \url{https://github.com/crsh/papaja}
 
-\leavevmode\vadjust pre{\hypertarget{ref-bakker2011}{}}%
+\leavevmode\hypertarget{ref-bakker2011}{}%
 Bakker, M., \& Wicherts, J. M. (2011). The (mis)reporting of statistical results in psychology journals. \emph{Behavior Research Methods}, \emph{43}(3), 666--678. \url{https://doi.org/10.3758/s13428-011-0089-5}
 
-\leavevmode\vadjust pre{\hypertarget{ref-brown2017}{}}%
+\leavevmode\hypertarget{ref-brown2017}{}%
 Brown, N. J. L., \& Heathers, J. A. J. (2017). The GRIM Test: A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology. \emph{Social Psychological and Personality Science}, \emph{8}(4), 363--369. \url{https://doi.org/10.1177/1948550616673876}
 
-\leavevmode\vadjust pre{\hypertarget{ref-cohen1962}{}}%
+\leavevmode\hypertarget{ref-cohen1962}{}%
 Cohen, J. (1962). The statistical power of abnormal-social psychological research: a review. \emph{Journal of Abnormal and Social Psychology}, \emph{65}, 145--153. \url{https://doi.org/10.1037/h0045186}
 
-\leavevmode\vadjust pre{\hypertarget{ref-cohen1988}{}}%
+\leavevmode\hypertarget{ref-cohen1988}{}%
 Cohen, J. (1988). \emph{Statistical power analysis for the behavioral sciences} (2nd ed.). New York: Routledge. \url{https://doi.org/10.4324/9780203771587}
 
-\leavevmode\vadjust pre{\hypertarget{ref-correll2020}{}}%
+\leavevmode\hypertarget{ref-correll2020}{}%
 Correll, J., Mellinger, C., McClelland, G. H., \& Judd, C. M. (2020). Avoid cohen{'}s {`}small{'}, {`}medium{'}, and {`}large{'} for power analysis. \emph{Trends in Cognitive Sciences}, \emph{24}(3), 200--207. \url{https://doi.org/10.1016/j.tics.2019.12.009}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-faux}{}}%
+\leavevmode\hypertarget{ref-R-faux}{}%
 DeBruine, L. (2021). \emph{Faux: Simulation for factorial designs}. Zenodo. \url{https://doi.org/10.5281/zenodo.2669586}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-lemon}{}}%
+\leavevmode\hypertarget{ref-R-lemon}{}%
 Edwards, S. M. (2020). \emph{Lemon: Freshing up your 'ggplot2' plots}. Retrieved from \url{https://CRAN.R-project.org/package=lemon}
 
-\leavevmode\vadjust pre{\hypertarget{ref-field2016}{}}%
+\leavevmode\hypertarget{ref-field2016}{}%
 Field, A. P. (2016). \emph{An adventure in statistics: The reality enigma}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-fischman2015}{}}%
+\leavevmode\hypertarget{ref-fischman2015}{}%
 Fischman, M. G. (2015). On the continuing problem of inappropriate learning measures: Comment on Wulf et al. (2014) and Wulf et al. (2015). \emph{Human Movement Science}, \emph{42}, 225--231. \url{https://doi.org/10.1016/j.humov.2015.05.011}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-daff}{}}%
+\leavevmode\hypertarget{ref-R-daff}{}%
 Fitzpatrick, P., de Jonge, E., \& Warnes, G. R. (2019). \emph{Daff: Diff, patch and merge for data.frames}. Retrieved from \url{https://CRAN.R-project.org/package=daff}
 
-\leavevmode\vadjust pre{\hypertarget{ref-gray2021}{}}%
+\leavevmode\hypertarget{ref-gray2021}{}%
 Gray, R. {[}@ShakeyWaits{]}. (2021). \emph{The effect of explicit, implicit and analogy instruction on decision making skill for novices, under stress}. {[}Tweet; Thumbnail link to article{]}. Twitter. \url{https://twitter.com/ShakeyWaits/status/1359501377073012736}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-hancock1995}{}}%
+\leavevmode\hypertarget{ref-hancock1995}{}%
 Hancock, G. R., Butler, M. S., \& Fischman, M. G. (1995). On the problem of two-dimensional error scores: Measures and analyses of accuracy, bias, and consistency. \emph{Journal of Motor Behavior}, \emph{27}(3), 241--250. \url{https://doi.org/10.1080/00222895.1995.9941714}
 
-\leavevmode\vadjust pre{\hypertarget{ref-lakens2013}{}}%
+\leavevmode\hypertarget{ref-lakens2013}{}%
 Lakens, D. (2013). Calculating and reporting effect sizes to facilitate cumulative science: A practical primer for t-tests and ANOVAs. \emph{Frontiers in Psychology}, \emph{4}. \url{https://doi.org/10.3389/fpsyg.2013.00863}
 
-\leavevmode\vadjust pre{\hypertarget{ref-lohse2016}{}}%
+\leavevmode\hypertarget{ref-lohse2016}{}%
 Lohse, K., Buchanan, T., \& Miller, M. (2016). Underpowered and overworked: Problems with data analysis in motor learning studies. \emph{Journal of Motor Learning and Development}, \emph{4}(1), 37--58. \url{https://doi.org/10.1123/jmld.2015-0010}
 
-\leavevmode\vadjust pre{\hypertarget{ref-lola2021b}{}}%
+\leavevmode\hypertarget{ref-lola2021b}{}%
 Lola, A. C., Giatis, G., Pérez-Turpin, J. A., \& Tzetzis, G. C. (2021). The influence of analogies on the development of selective attention in novices in normal or stressful conditions. \emph{Journal of Human Sport and Exercise}, \emph{in press}(0), 1--14. \url{https://doi.org/10.14198/jhse.2023.181.12}
 
-\leavevmode\vadjust pre{\hypertarget{ref-lola2020}{}}%
+\leavevmode\hypertarget{ref-lola2020}{}%
 Lola, A. C., \& Tzetzis, G. C. (2020). Analogy versus explicit and implicit learning of a volleyball skill for novices: The effect on motor performance and self-efficacy. \emph{Journal of Physical Education and Sport}, \emph{20}(5), 2478--2486. Retrieved from \url{https://www.cabdirect.org/cabdirect/abstract/20203562097}
 
-\leavevmode\vadjust pre{\hypertarget{ref-lola2021}{}}%
+\leavevmode\hypertarget{ref-lola2021}{}%
 Lola, A. C., \& Tzetzis, G. C. (2021). The effect of explicit, implicit and analogy instruction on decision making skill for novices, under stress. \emph{International Journal of Sport and Exercise Psychology}, \emph{0}(0), 1--21. \url{https://doi.org/10.1080/1612197X.2021.1877325}
 
-\leavevmode\vadjust pre{\hypertarget{ref-lola2012}{}}%
+\leavevmode\hypertarget{ref-lola2012}{}%
 Lola, A. C., Tzetzis, G. C., \& Zetou, H. (2012). The Effect of Implicit and Explicit Practice in the Development of Decision Making in Volleyball Serving. \emph{Perceptual and Motor Skills}, \emph{114}(2), 665--678. \url{https://doi.org/10.2466/05.23.25.PMS.114.2.665-678}
 
-\leavevmode\vadjust pre{\hypertarget{ref-lovakov2021}{}}%
+\leavevmode\hypertarget{ref-lovakov2021}{}%
 Lovakov, A., \& Agadullina, E. R. (2021). Empirically derived guidelines for effect size interpretation in social psychology. \emph{European Journal of Social Psychology}, \emph{00}, 1--20. \url{https://doi.org/10.1002/ejsp.2752}
 
-\leavevmode\vadjust pre{\hypertarget{ref-mckay2021b}{}}%
+\leavevmode\hypertarget{ref-mckay2021b}{}%
 McKay, B., Hussien, J., Vinh, M.-A., Mir-Orefice, A., Brooks, H., \& Ste-Marie, D. M. (2021). \emph{Meta-analysis of reduced relative feedback frequency effect on motor learning and performance}. \url{https://doi.org/10.31234/osf.io/v2cp7}
 
-\leavevmode\vadjust pre{\hypertarget{ref-mckay2021a}{}}%
+\leavevmode\hypertarget{ref-mckay2021a}{}%
 McKay, B., Yantha, Z. D., Hussien, J., Carter, M. J., \& Ste-Marie, D. M. (in press). Meta-analytic findings in the self-controlled motor learning literature: Underpowered, biased, and lacking evidential value. \emph{Meta-Psychology}. \url{https://doi.org/10.31234/osf.io/8d3nb}
 
-\leavevmode\vadjust pre{\hypertarget{ref-munafo2017}{}}%
+\leavevmode\hypertarget{ref-munafo2017}{}%
 Munafò, M. R., Nosek, B. A., Bishop, D. V. M., Button, K. S., Chambers, C. D., Percie du Sert, N., \ldots{} Ioannidis, J. P. A. (2017). A manifesto for reproducible science. \emph{Nature Human Behaviour}, \emph{1}(1), 1--9. \url{https://doi.org/10.1038/s41562-016-0021}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-gridGraphics}{}}%
+\leavevmode\hypertarget{ref-R-gridGraphics}{}%
 Murrell, P., \& Wen, Z. (2020). \emph{gridGraphics: Redraw base graphics using 'grid' graphics}. Retrieved from \url{https://CRAN.R-project.org/package=gridGraphics}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-lsr}{}}%
+\leavevmode\hypertarget{ref-R-lsr}{}%
 Navarro, D. (2015). \emph{Learning statistics with r: A tutorial for psychology students and other beginners. (Version 0.5)}. Adelaide, Australia: University of Adelaide. Retrieved from \url{http://ua.edu.au/ccs/teaching/lsr}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-RColorBrewer}{}}%
+\leavevmode\hypertarget{ref-R-RColorBrewer}{}%
 Neuwirth, E. (2014). \emph{RColorBrewer: ColorBrewer palettes}. Retrieved from \url{https://CRAN.R-project.org/package=RColorBrewer}
 
-\leavevmode\vadjust pre{\hypertarget{ref-nuijten2016}{}}%
-Nuijten, M. B., Hartgerink, C. H. J., van Assen, M. A. L. M., Epskamp, S., \& Wicherts, J. M. (2016). The prevalence of statistical reporting errors in psychology (1985{\textendash}2013). \emph{Behavior Research Methods}, \emph{48}(4), 1205--1226. \url{https://doi.org/10.3758/s13428-015-0664-2}
+\leavevmode\hypertarget{ref-nuijten2016}{}%
+Nuijten, M. B., Hartgerink, C. H. J., van Assen, M. A. L. M., Epskamp, S., \& Wicherts, J. M. (2016). The prevalence of statistical reporting errors in psychology (1985{{}}2013). \emph{Behavior Research Methods}, \emph{48}(4), 1205--1226. \url{https://doi.org/10.3758/s13428-015-0664-2}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
+\leavevmode\hypertarget{ref-R-base}{}%
 R Core Team. (2021). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-compute.es}{}}%
+\leavevmode\hypertarget{ref-R-compute.es}{}%
 Re, A. C. D. (2013). Compute.es: Compute effect sizes. In \emph{R Package}. Retrieved from \url{https://cran.r-project.org/package=compute.es}
 
-\leavevmode\vadjust pre{\hypertarget{ref-reeve1994}{}}%
+\leavevmode\hypertarget{ref-reeve1994}{}%
 Reeve, T. G., Fischman, M. G., Christina, R. W., \& Cauraugh, J. H. (1994). Using one-dimensional task error measures to assess performance on two-dimensional tasks: Comment on 'attentional control, distractors, and motor performance'. \emph{Human Performance}, \emph{7}(4), 315--319. \url{https://doi.org/10.1207/s15327043hup0704_6}
 
-\leavevmode\vadjust pre{\hypertarget{ref-thompson2007}{}}%
+\leavevmode\hypertarget{ref-thompson2007}{}%
 Thompson, B. (2007). Effect sizes, confidence intervals, and confidence intervals for effect sizes. \emph{Psychology in the Schools}, \emph{44}(5), 423--432. \url{https://doi.org/10.1002/pits.20234}
 
-\leavevmode\vadjust pre{\hypertarget{ref-tsorbatzoudis1998}{}}%
+\leavevmode\hypertarget{ref-tsorbatzoudis1998}{}%
 Tsorbatzoudis, H., Barkoukis, V., Kaissidis-Rodafinos, A., \& Grouios, G. (1998). A test of the reliability and factorial validity of the greek version of the CSAI-2. \emph{Research Quarterly for Exercise and Sport}, \emph{69}(4), 416--419. \url{https://doi.org/10.1080/02701367.1998.10607717}
 
-\leavevmode\vadjust pre{\hypertarget{ref-tzetzis2010}{}}%
+\leavevmode\hypertarget{ref-tzetzis2010}{}%
 Tzetzis, G. C., \& Lola, A. C. (2010). The role of implicit, explicit instruction and their combination in learning anticipation skill under normal and stress conditions. \emph{International Journal of Sport Sciences and Physical Education}, \emph{1}, 54--59.
 
-\leavevmode\vadjust pre{\hypertarget{ref-tzetzis2015}{}}%
+\leavevmode\hypertarget{ref-tzetzis2015}{}%
 Tzetzis, G. C., \& Lola, A. C. (2015). The effect of analogy, implicit, and explicit learning on anticipation in volleyball serving. \emph{International Journal of Sport Psychology}, \emph{46}(2), 152--166. \url{https://doi.org/10.7352/IJSP.2015.46.152}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-tidyverse}{}}%
+\leavevmode\hypertarget{ref-R-tidyverse}{}%
 Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., \ldots{} Yutani, H. (2019). Welcome to the {tidyverse}. \emph{Journal of Open Source Software}, \emph{4}(43), 1686. \url{https://doi.org/10.21105/joss.01686}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-scales}{}}%
+\leavevmode\hypertarget{ref-R-scales}{}%
 Wickham, H., \& Seidel, D. (2020). \emph{Scales: Scale functions for visualization}. Retrieved from \url{https://CRAN.R-project.org/package=scales}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-kableExtra}{}}%
+\leavevmode\hypertarget{ref-R-kableExtra}{}%
 Zhu, H. (2021). \emph{kableExtra: Construct complex table with 'kable' and pipe syntax}. Retrieved from \url{https://CRAN.R-project.org/package=kableExtra}
 
 \end{CSLReferences}
